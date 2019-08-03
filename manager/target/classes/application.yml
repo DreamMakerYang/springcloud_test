@@ -1,0 +1,19 @@
+server:
+  port: 9011
+spring:
+  application:
+    name: manager
+eureka:
+  client:
+    serviceUrl: #Eureka客户端与Eureka服务端进行交互地址
+      defaultZone: http://127.0.0.1:9010/eureka/
+  instance:
+    prefer-ip-address: true
+zuul:
+  routes:
+    student: #线路名称
+      path: /student/** #线路url配置规则
+      serviceId: student #调用服务的ID
+    teacher:
+      path: /teacher/**
+      serviceId: teacher
